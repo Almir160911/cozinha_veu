@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    senha TEXT NOT NULL,
+    tipo TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS pratos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    preco REAL NOT NULL,
+    descricao TEXT NOT NULL,
+    imagem TEXT
+);
+
+CREATE TABLE IF NOT EXISTS pedidos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER,
+    prato_id INTEGER,
+    horario_entrega TEXT,
+    status TEXT,
+    observacao TEXT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (prato_id) REFERENCES pratos(id)
+);
