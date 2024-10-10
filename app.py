@@ -5,9 +5,6 @@ from flask import Flask, request, send_from_directory, url_for, jsonify
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
 
-
-
-
 # Conectar ao banco de dados SQLite
 conn = sqlite3.connect('pedidos_comida.db', check_same_thread=False)
 cursor = conn.cursor()
